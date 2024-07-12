@@ -1,28 +1,37 @@
 package com.example.android_training.presentation.homepage
 
 import android.widget.Toast
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Divider
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.android_training.domain.model.Food
+import com.example.android_training.R
+import com.example.android_training.domain.model.Advice
+import com.example.android_training.domain.model.Message
+import com.example.android_training.ui.theme.Dimen
 
 @Composable
 fun HomepageScreen(
@@ -33,10 +42,7 @@ fun HomepageScreen(
 
     with(uiState) {
         if (loadingState) {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
-            return@with
+            HomepageScreenUI(loading = true, onNewAdviceButtonClicked = {})
         }
         if (isSuccess) {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
@@ -44,61 +50,56 @@ fun HomepageScreen(
         if (isHaveError) {
             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
         }
-        if (isSearchLoading) {
-            Toast.makeText(context, "Search Loading", Toast.LENGTH_SHORT).show()
-        }
-        if (isSearchSuccess) {
-            Toast.makeText(context, "Search Success", Toast.LENGTH_SHORT).show()
-        }
-        if (isSearchError) {
-            Toast.makeText(context, "Search Error", Toast.LENGTH_SHORT).show()
-        }
 
-        HomepageScreenUI(
-            foods = foodList,
-            searchFood = { viewModel.getFoodByName(it) }
-        )
+        HomepageScreenUI(message = randomMessage, onNewAdviceButtonClicked = {
+            viewModel.getRandomMessage()
+        })
     }
 }
 
 @Composable
 fun HomepageScreenUI(
-    foods: List<Food>,
-    searchFood: (String) -> Unit = {},
+    message: Message? = null,
+    loading: Boolean = false,
+    onNewAdviceButtonClicked: () -> Unit,
 ) {
-    var query by remember { mutableStateOf("") }
-    val searchedFoods = foods.filter {
-        it.description?.contains(query, ignoreCase = true) == true
-    }
 
-    Column {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.Black),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        if (loading) {
+            Text(
+                text = stringResource(R.string.loading),
+                color = Color.White,
+                fontSize = Dimen.font_size_l,
+                fontWeight = FontWeight.Bold,
+            )
+        } else {
+            Text(
+                text = message?.slip?.advice ?: "",
+                color = Color.White,
+                fontSize = Dimen.font_size_l,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+        Spacer(modifier = Modifier.height(Dimen.spacing_xxxl))
 
-        OutlinedTextField(
-            value = query,
-            onValueChange = {
-                query = it
-                searchFood(it)
-            },
-            label = { Text("Search") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp, top = 8.dp),
-        )
-
-        Text(text = "FOOD LIST: ")
-
-        LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(searchedFoods.size) { productIndex ->
-                val food = searchedFoods[productIndex]
-                FoodItem(food = food)
-            }
+        Button(
+            onClick = onNewAdviceButtonClicked,
+            shape = RoundedCornerShape(Dimen.spacing_xs),
+            colors = ButtonDefaults.buttonColors(Color.DarkGray),
+            modifier = Modifier.width(Dimen.spacing_xxxxxl),
+        ) {
+            Text(
+                text = stringResource(R.string.new_advice),
+                color = Color.White,
+                fontSize = Dimen.font_size_l,
+                fontWeight = FontWeight.Bold,
+            )
         }
     }
-}
-
-@Composable
-fun FoodItem(
-    food: Food,
-) {
-    Text(text = food.description ?: "")
 }
