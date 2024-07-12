@@ -1,7 +1,7 @@
 package com.example.android_training.di
 
 import com.example.android_training.core.Constants.BASE_URL
-import com.example.android_training.data.remote.FoodApi
+import com.example.android_training.data.remote.MessageApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,8 +18,8 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): FoodApi {
-        return retrofit.create(FoodApi::class.java)
+    fun provideMessageApi(retrofit: Retrofit): MessageApi {
+        return retrofit.create(MessageApi::class.java)
     }
 
     @Provides
@@ -47,8 +47,6 @@ object NetworkModule {
         return OkHttpClient.Builder()
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
-                    .addHeader("x-rapidapi-key", "71d4ea6826mshe4869786ba08c5cp19a2d2jsna5d505eedd03")
-                    .addHeader("x-rapidapi-host", "myfitnesspal2.p.rapidapi.com")
                     .build()
                 chain.proceed(request)
             }
