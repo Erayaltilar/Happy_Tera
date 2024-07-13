@@ -1,4 +1,4 @@
-package com.example.android_training.presentation.homepage
+package com.example.android_training.presentation.advice.homepage
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
-class HomepageViewModel @Inject constructor(
+class AdviceHomepageViewModel @Inject constructor(
     private val getRandomMessageUseCase: GetRandomMessageUseCase,
 ) : ViewModel() {
 

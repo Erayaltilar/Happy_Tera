@@ -1,19 +1,17 @@
-package com.example.android_training.presentation.homepage
+package com.example.android_training.presentation.advice.homepage
 
+import android.app.Activity
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -24,18 +22,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.android_training.R
-import com.example.android_training.domain.model.Advice
 import com.example.android_training.domain.model.Message
 import com.example.android_training.ui.theme.Dimen
 
 @Composable
-fun HomepageScreen(
-    viewModel: HomepageViewModel = hiltViewModel(),
+fun AdviceHomepageScreen(
+    navController: NavController,
+    viewModel: AdviceHomepageViewModel = hiltViewModel(),
+    goToTheActivity: (activity: Activity) -> Unit = {},
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val context = LocalContext.current
@@ -95,7 +92,7 @@ fun HomepageScreenUI(
             modifier = Modifier.width(Dimen.spacing_xxxxxl),
         ) {
             Text(
-                text = stringResource(R.string.new_advice),
+                text = stringResource(R.string.get_advice),
                 color = Color.White,
                 fontSize = Dimen.font_size_l,
                 fontWeight = FontWeight.Bold,
