@@ -3,7 +3,8 @@ package com.example.android_training
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.android_training.presentation.homepage.HomepageScreen
+import androidx.navigation.compose.rememberNavController
+import com.example.android_training.presentation.advice.homepage.AdviceHomepageScreen
 import com.example.android_training.ui.theme.AndroidTrainingTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -13,7 +14,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AndroidTrainingTheme {
-                HomepageScreen()
+                val navController = rememberNavController()
+
+                AdviceHomepageScreen(navController = navController)
             }
         }
     }

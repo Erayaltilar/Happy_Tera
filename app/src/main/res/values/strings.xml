@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Android-Training</string>
-    <string name="new_advice">New Advice</string>
+    <string name="get_advice">Get Advice</string>
     <string name="loading">Loading...</string>
 </resources>
