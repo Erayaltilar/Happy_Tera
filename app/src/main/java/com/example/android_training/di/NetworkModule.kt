@@ -1,6 +1,7 @@
 package com.example.android_training.di
 
-import com.example.android_training.core.Constants.BASE_URL
+import com.example.android_training.core.Constants.BASE_URL_ADVICE_API
+import com.example.android_training.core.Constants.BASE_URL_MOVIE_API
 import com.example.android_training.data.remote.MessageApi
 import dagger.Module
 import dagger.Provides
@@ -29,7 +30,8 @@ object NetworkModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL_MOVIE_API)
+            .baseUrl(BASE_URL_ADVICE_API)
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()
@@ -47,6 +49,8 @@ object NetworkModule {
         return OkHttpClient.Builder()
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
+                    .addHeader("x-rapidapi-key", "71d4ea6826mshe4869786ba08c5cp19a2d2jsna5d505eedd03")
+                    .addHeader("x-rapidapi-host", "moviesdatabase.p.rapidapi.com")
                     .build()
                 chain.proceed(request)
             }
