@@ -3,7 +3,7 @@ package com.example.android_training.presentation.advice.homepage
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android_training.core.Resource
-import com.example.android_training.domain.model.Message
+import com.example.android_training.domain.model.message_model.Message
 import com.example.android_training.domain.usecase.GetRandomMessageUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,8 +19,8 @@ class AdviceHomepageViewModel @Inject constructor(
     private val getRandomMessageUseCase: GetRandomMessageUseCase,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(HomepageScreenUIState())
-    val uiState: StateFlow<HomepageScreenUIState> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(AdviceHomepageScreenUIState())
+    val uiState: StateFlow<AdviceHomepageScreenUIState> = _uiState.asStateFlow()
 
     init {
         getRandomMessage()
@@ -62,7 +62,7 @@ class AdviceHomepageViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
-    data class HomepageScreenUIState(
+    data class AdviceHomepageScreenUIState(
         val loadingState: Boolean = false,
         val isHaveError: Boolean = false,
         val isSuccess: Boolean = false,

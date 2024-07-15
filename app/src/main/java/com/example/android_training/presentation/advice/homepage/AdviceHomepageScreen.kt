@@ -25,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.android_training.R
-import com.example.android_training.domain.model.Message
+import com.example.android_training.domain.model.message_model.Message
 import com.example.android_training.ui.theme.Dimen
 
 @Composable
@@ -39,7 +39,7 @@ fun AdviceHomepageScreen(
 
     with(uiState) {
         if (loadingState) {
-            HomepageScreenUI(loading = true, onNewAdviceButtonClicked = {})
+            AdviceHomepageScreenUI(loading = true, onNewAdviceButtonClicked = {})
         }
         if (isSuccess) {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
@@ -48,14 +48,14 @@ fun AdviceHomepageScreen(
             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
         }
 
-        HomepageScreenUI(message = randomMessage, onNewAdviceButtonClicked = {
+        AdviceHomepageScreenUI(message = randomMessage, onNewAdviceButtonClicked = {
             viewModel.getRandomMessage()
         })
     }
 }
 
 @Composable
-fun HomepageScreenUI(
+fun AdviceHomepageScreenUI(
     message: Message? = null,
     loading: Boolean = false,
     onNewAdviceButtonClicked: () -> Unit,
