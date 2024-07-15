@@ -3,6 +3,7 @@ package com.example.android_training.di
 import com.example.android_training.core.Constants.BASE_URL_ADVICE_API
 import com.example.android_training.core.Constants.BASE_URL_MOVIE_API
 import com.example.android_training.data.remote.MessageApi
+import com.example.android_training.data.remote.MovieApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +22,12 @@ object NetworkModule {
     @Singleton
     fun provideMessageApi(retrofit: Retrofit): MessageApi {
         return retrofit.create(MessageApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieApi(retrofit: Retrofit): MovieApi{
+        return retrofit.create(MovieApi::class.java)
     }
 
     @Provides
