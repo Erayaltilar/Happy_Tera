@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.example.android_training.presentation.advice.homepage.AdviceHomepageScreen
+import com.example.android_training.presentation.movie.homepage.MovieHomepageScreen
 import com.example.android_training.ui.theme.AndroidTrainingTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +17,7 @@ class MainActivity : ComponentActivity() {
             AndroidTrainingTheme {
                 val navController = rememberNavController()
 
-                AdviceHomepageScreen(navController = navController)
+                MovieHomepageScreen(navController = navController)
             }
         }
     }
