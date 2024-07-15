@@ -3,7 +3,7 @@ package com.example.android_training.data.repository
 import com.example.android_training.core.Resource
 import com.example.android_training.data.mapper.toMessage
 import com.example.android_training.data.remote.MessageApi
-import com.example.android_training.domain.model.Message
+import com.example.android_training.domain.model.message_model.Message
 import com.example.android_training.domain.repository.MessageRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

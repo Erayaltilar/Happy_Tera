@@ -1,6 +1,6 @@
 package com.example.android_training.data.remote
 
-import com.example.android_training.data.remote.dto.MessageDto
+import com.example.android_training.data.remote.dto.message.MessageDto
 import retrofit2.http.GET
 
 interface MessageApi {
