@@ -56,8 +56,8 @@ object NetworkModule {
         return OkHttpClient.Builder()
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
-                    .addHeader("x-rapidapi-key", "71d4ea6826mshe4869786ba08c5cp19a2d2jsna5d505eedd03")
-                    .addHeader("x-rapidapi-host", "moviesdatabase.p.rapidapi.com")
+                    .addHeader("content-type", "application/json")
+                    .addHeader("authorization", "apikey 7eKwtU0FVNCtLI1GJB6veH:59CgYgWd3iufP7nVNvNKiO")
                     .build()
                 chain.proceed(request)
             }

@@ -55,7 +55,7 @@ fun MovieHomepageUI(movies: List<Movie>?) {
             movies?.size?.let {
                 items(it) { count ->
                     Text(
-                        text = movies[count].title,
+                        text = movies[count].name,
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.background(color = Color.Black),

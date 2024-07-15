@@ -47,7 +47,7 @@ class MovieHomepageViewModel @Inject constructor(
                             loadingState = false,
                             isHaveError = false,
                             isSuccess = true,
-                            randomMovies = it.data,
+                            randomMovies = it.data?.result,
                         )
                     }
                 }
