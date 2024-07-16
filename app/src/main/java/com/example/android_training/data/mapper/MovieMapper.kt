@@ -7,11 +7,11 @@ import com.example.android_training.domain.model.movie_model.MovieRequest
 
 fun MovieDto.toMovie(): Movie {
     return Movie(
-        url = url,
-        img = img,
-        year = year,
-        rate = rate,
-        name = name,
+        id = id,
+        movie = movie,
+        rating = rating,
+        image = image,
+        imdb_url = imdb_url,
     )
 }
 

@@ -6,5 +6,5 @@ import com.example.android_training.domain.model.movie_model.MovieRequest
 import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
-    fun getRandomMovie(): Flow<Resource<MovieRequest>>
+    fun getRandomMovie(): Flow<Resource<List<Movie>>>
 }

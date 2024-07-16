@@ -1,9 +1,9 @@
 package com.example.android_training.data.remote.dto.movie
 
 data class MovieDto(
-    val url: String,
-    val img: String,
-    val year: String,
-    val rate: String,
-    val name: String,
+    val id: Long,
+    val movie: String,
+    val rating: String,
+    val image: String,
+    val imdb_url: String,
 )

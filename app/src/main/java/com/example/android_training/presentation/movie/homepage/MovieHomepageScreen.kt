@@ -52,13 +52,12 @@ fun MovieHomepageUI(movies: List<Movie>?) {
             .background(color = Color.Black),
     ) {
         LazyColumn {
-            movies?.size?.let {
-                items(it) { count ->
+            movies?.forEach { movie ->
+                item {
                     Text(
-                        text = movies[count].name,
-                        color = Color.White,
+                        text = movie.movie,
                         fontWeight = FontWeight.Bold,
-                        modifier = Modifier.background(color = Color.Black),
+                        color = Color.White
                     )
                 }
             }

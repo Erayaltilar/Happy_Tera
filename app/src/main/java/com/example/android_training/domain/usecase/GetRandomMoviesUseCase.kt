@@ -10,7 +10,7 @@ import javax.inject.Inject
 class GetRandomMoviesUseCase @Inject constructor(
     private val movieRepository: MovieRepository,
 ) {
-    operator fun invoke(): Flow<Resource<MovieRequest>> {
+    operator fun invoke(): Flow<Resource<List<Movie>>> {
         return movieRepository.getRandomMovie()
     }
 }
