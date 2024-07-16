@@ -12,6 +12,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.*
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -20,29 +21,44 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMessageApi(retrofit: Retrofit): MessageApi {
+    fun provideMessageApi(@Named("adviceApi") retrofit: Retrofit): MessageApi {
         return retrofit.create(MessageApi::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideMovieApi(retrofit: Retrofit): MovieApi{
+    fun provideMovieApi(@Named("movieApi") retrofit: Retrofit): MovieApi {
         return retrofit.create(MovieApi::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideRetrofitInstance(
+    @Named("movieApi")
+    fun provideMovieApiRetrofit(
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL_MOVIE_API)
+            .client(okHttpClient)
+            .addConverterFactory(gsonConverterFactory)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    @Named("adviceApi")
+    fun provideAdviceApiRetrofit(
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit {
+        return Retrofit.Builder()
             .baseUrl(BASE_URL_ADVICE_API)
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()
     }
+
 
     @Provides
     @Singleton
@@ -56,8 +72,6 @@ object NetworkModule {
         return OkHttpClient.Builder()
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
-                    .addHeader("content-type", "application/json")
-                    .addHeader("authorization", "apikey 7eKwtU0FVNCtLI1GJB6veH:59CgYgWd3iufP7nVNvNKiO")
                     .build()
                 chain.proceed(request)
             }
