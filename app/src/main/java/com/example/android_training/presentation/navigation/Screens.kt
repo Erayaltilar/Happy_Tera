@@ -10,5 +10,4 @@ sealed class Screens {
 
     @Serializable
     data object MovieHomepageScreen : Screens()
-
 }

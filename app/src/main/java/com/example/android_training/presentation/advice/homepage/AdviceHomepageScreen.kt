@@ -1,6 +1,5 @@
 package com.example.android_training.presentation.advice.homepage
 
-import android.app.Activity
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -32,7 +31,6 @@ import com.example.android_training.ui.theme.Dimen
 fun AdviceHomepageScreen(
     navController: NavController,
     viewModel: AdviceHomepageViewModel = hiltViewModel(),
-    goToTheActivity: (activity: Activity) -> Unit = {},
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val context = LocalContext.current
@@ -48,9 +46,12 @@ fun AdviceHomepageScreen(
             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
         }
 
-        AdviceHomepageScreenUI(message = randomMessage, onNewAdviceButtonClicked = {
-            viewModel.getRandomMessage()
-        })
+        AdviceHomepageScreenUI(
+            message = randomMessage,
+            onNewAdviceButtonClicked = {
+                viewModel.getRandomMessage()
+            },
+        )
     }
 }
 
