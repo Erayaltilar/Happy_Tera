@@ -33,9 +33,13 @@ class MainActivity : ComponentActivity() {
                     val scope = rememberCoroutineScope()
                     val navController = rememberNavController()
 
-                    CustomDrawerNavigation(scope = scope, drawerState = drawerState, navController = navController, mainContent = {
-                        NavGraph(navController = navController)
-                    })
+                    CustomDrawerNavigation(
+                        scope = scope, drawerState = drawerState,
+                        navController = navController,
+                        mainContent = {
+                            NavGraph(navController = navController)
+                        },
+                    )
                 }
             }
         }
