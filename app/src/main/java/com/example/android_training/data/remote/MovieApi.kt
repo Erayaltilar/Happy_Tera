@@ -2,10 +2,13 @@ package com.example.android_training.data.remote
 
 import com.example.android_training.data.remote.dto.movie.MovieDto
 import com.example.android_training.data.remote.dto.movie.MovieRequestDto
-import com.example.android_training.domain.model.movie_model.Movie
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface MovieApi {
-    @GET("api/movies")
-    suspend fun getRandomMovies(): List<Movie>
+    @GET("3/discover/movie")
+    suspend fun getDiscoverMovie(): MovieRequestDto
+
+    @GET("3/movie/{movie_id}")
+    suspend fun getMovieDetail(@Path("movie_id") movieId: Long): MovieDto
 }
