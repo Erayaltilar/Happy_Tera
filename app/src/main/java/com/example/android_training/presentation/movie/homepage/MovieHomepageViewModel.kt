@@ -3,10 +3,9 @@ package com.example.android_training.presentation.movie.homepage
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android_training.core.Resource
-import com.example.android_training.domain.model.message_model.Message
 import com.example.android_training.domain.model.movie_model.Movie
-import com.example.android_training.domain.usecase.GetRandomMessageUseCase
-import com.example.android_training.domain.usecase.GetRandomMoviesUseCase
+import com.example.android_training.domain.usecase.GetDiscoverMoviesUseCase
+import com.example.android_training.domain.usecase.GetMovieDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,18 +17,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieHomepageViewModel @Inject constructor(
-    private val getRandomMoviesUseCase: GetRandomMoviesUseCase,
+    private val getDiscoverMoviesUseCase: GetDiscoverMoviesUseCase,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(MovieHomepageScreenUIState())
     val uiState: StateFlow<MovieHomepageScreenUIState> = _uiState.asStateFlow()
 
     init {
-        getRandomMovies()
+        getDiscoverMovies()
     }
 
-    private fun getRandomMovies() {
-        getRandomMoviesUseCase().onEach {
+        private fun getDiscoverMovies() {
+        getDiscoverMoviesUseCase().onEach {
             when (it) {
                 is Resource.Loading -> {
                     _uiState.update { state ->
@@ -47,7 +46,7 @@ class MovieHomepageViewModel @Inject constructor(
                             loadingState = false,
                             isHaveError = false,
                             isSuccess = true,
-                            randomMovies = it.data,
+                            discoverMovies = it.data?.results,
                         )
                     }
                 }
@@ -58,7 +57,7 @@ class MovieHomepageViewModel @Inject constructor(
                             loadingState = false,
                             isHaveError = true,
                             isSuccess = false,
-                            errorMessage = it.message.toString(),
+                            errorMessage = it.errorMessage.toString(),
                         )
                     }
                 }
@@ -71,6 +70,6 @@ class MovieHomepageViewModel @Inject constructor(
         val isHaveError: Boolean = false,
         val isSuccess: Boolean = false,
         val errorMessage: String = "",
-        val randomMovies: List<Movie>? = null,
+        val discoverMovies: List<Movie>? = null,
     )
 }
