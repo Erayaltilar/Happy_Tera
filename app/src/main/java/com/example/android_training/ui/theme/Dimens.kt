@@ -48,7 +48,10 @@ object Dimen {
     val spacing_xxxxl = 128.dp
 
     /*** 256.dp*/
-    val spacing_xxxxxl = 256.dp
+    val spacing_xxxxxl = 200.dp
+
+    /*** 256.dp*/
+    val spacing_xxxxxxl = 256.dp
 
     // Font Size
     /*** 2.sp*/
