@@ -1,5 +1,19 @@
 <resources>
     <string name="app_name">Android-Training</string>
+
+    <!-- Advice Screen -->
     <string name="get_advice">Get Advice</string>
     <string name="loading">Loading...</string>
+
+     <!-- Main Screen -->
+    <string name="advice">Advice</string>
+    <string name="movie">Movie</string>
+
+    <!-- Movie Screen -->
+    <string name="discover">Discover !</string>
+    <string name="https_image_tmdb_org_t_p_w500">https://image.tmdb.org/t/p/w500/%1$s</string>
+
+    <!-- Content Descriptions -->
+    <string name="menu">Menu</string>
+    <string name="movie_poster">Movie Poster</string>
 </resources>

@@ -10,4 +10,9 @@ sealed class Screens {
 
     @Serializable
     data object MovieHomepageScreen : Screens()
+
+    @Serializable
+    data class MovieDetailScreen(
+        val movieId: Long,
+    ) : Screens()
 }
