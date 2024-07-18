@@ -72,6 +72,8 @@ object NetworkModule {
         return OkHttpClient.Builder()
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
+                    .addHeader("accept", "application/json")
+                    .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZGRlNWM5NmQyMGE0NzA2YjVlY2U5MTc4OThkY2ZkNCIsIm5iZiI6MTcyMTMxMTc3NC40Mzg3MjMsInN1YiI6IjY2OTkyMTc0NWE3NTJjYzA1YTBmNmYyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e9U5l9lu9U0hXUaMmhZM5jDvNlFQYRvUvzHaeWUnprA")
                     .build()
                 chain.proceed(request)
             }
