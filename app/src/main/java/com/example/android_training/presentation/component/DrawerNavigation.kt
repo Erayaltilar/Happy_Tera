@@ -31,10 +31,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.compose.rememberNavController
+import com.example.android_training.R
 import com.example.android_training.presentation.navigation.NavGraph
 import com.example.android_training.presentation.navigation.Screens
 import com.example.android_training.ui.theme.Dimen
@@ -63,13 +65,13 @@ fun CustomDrawerNavigation(
 
     val items = listOf(
         NavigationItem(
-            title = "Advice",
+            title = stringResource(R.string.advice),
             selectedIcon = Icons.Filled.Home,
             unselectedIcon = Icons.Outlined.Home,
             navigateToScreen = Screens.AdviceHomepageScreen,
         ),
         NavigationItem(
-            title = "Movie",
+            title = stringResource(R.string.movie),
             selectedIcon = Icons.Filled.Favorite,
             unselectedIcon = Icons.Outlined.Favorite,
             navigateToScreen = Screens.MovieHomepageScreen,
@@ -124,7 +126,7 @@ fun CustomDrawerNavigation(
                     colors = TopAppBarDefaults.topAppBarColors(Color.DarkGray),
                     title = {
                         Text(
-                            text = "Android Training",
+                            text = stringResource(R.string.app_name),
                             fontWeight = FontWeight.Bold,
                             color = Color.White
                         )
@@ -139,7 +141,7 @@ fun CustomDrawerNavigation(
                         ) {
                             Icon(
                                 imageVector = Icons.Default.Menu,
-                                contentDescription = "Menu",
+                                contentDescription = stringResource(R.string.menu),
                             )
                         }
                     },
