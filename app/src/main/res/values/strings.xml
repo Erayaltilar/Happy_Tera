@@ -10,7 +10,7 @@
     <string name="movie">Movie</string>
 
     <!-- Movie Screen -->
-    <string name="discover">Discover !</string>
+    <string name="movies">Movies !</string>
     <string name="https_image_tmdb_org_t_p_w500">https://image.tmdb.org/t/p/w500/%1$s</string>
 
     <!-- Content Descriptions -->
