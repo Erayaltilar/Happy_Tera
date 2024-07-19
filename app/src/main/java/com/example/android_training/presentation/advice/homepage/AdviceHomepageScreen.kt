@@ -39,9 +39,11 @@ fun AdviceHomepageScreen(
         if (loadingState) {
             AdviceHomepageScreenUI(loading = true, onNewAdviceButtonClicked = {})
         }
+
         if (isSuccess) {
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+            /* sonar - comment */
         }
+
         if (isHaveError) {
             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
         }
