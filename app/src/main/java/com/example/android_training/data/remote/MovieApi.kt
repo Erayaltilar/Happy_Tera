@@ -2,6 +2,8 @@ package com.example.android_training.data.remote
 
 import com.example.android_training.data.remote.dto.movie.MovieDto
 import com.example.android_training.data.remote.dto.movie.MovieRequestDto
+import com.example.android_training.data.remote.dto.series.SeriesDto
+import com.example.android_training.data.remote.dto.series.SeriesRequestDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -11,4 +13,17 @@ interface MovieApi {
 
     @GET("3/movie/{movie_id}")
     suspend fun getMovieDetail(@Path("movie_id") movieId: Long): MovieDto
+
+    @GET("3/movie/{movie_Id}/similar")
+    suspend fun getSimilarMovies(@Path("movie_Id") movieId: Long): MovieRequestDto
+
+    @GET("3/discover/tv")
+    suspend fun getDiscoverSeries(): SeriesRequestDto
+
+    @GET("3/tv/{series_id}")
+    suspend fun getSeriesDetail(@Path("series_id") seriesId: Long): SeriesDto
+
+    @GET("3/tv/{series_id}/similar")
+    suspend fun getSimilarSeries(@Path("series_id") seriesId: Long): SeriesRequestDto
+
 }
