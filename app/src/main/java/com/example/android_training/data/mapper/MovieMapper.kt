@@ -1,10 +1,10 @@
 package com.example.android_training.data.mapper
 
-import com.example.android_training.data.remote.dto.movie.GenresDto
 import com.example.android_training.data.remote.dto.movie.MovieDto
+import com.example.android_training.data.remote.dto.movie.MovieGenresDto
 import com.example.android_training.data.remote.dto.movie.MovieRequestDto
-import com.example.android_training.domain.model.movie_model.Genres
 import com.example.android_training.domain.model.movie_model.Movie
+import com.example.android_training.domain.model.movie_model.MovieGenres
 import com.example.android_training.domain.model.movie_model.MovieRequest
 
 fun MovieDto.toMovie(): Movie {
@@ -14,7 +14,7 @@ fun MovieDto.toMovie(): Movie {
         overview = overview,
         poster_path = poster_path,
         vote_avarage = vote_avarage,
-        genres = genres?.map { it.toGenreList() }
+        genres = genres?.map { it.toMovieGenreList() }
     )
 }
 
@@ -22,8 +22,8 @@ fun List<MovieDto>.toMovieList(): List<Movie> {
     return map { it.toMovie() }
 }
 
-fun GenresDto.toGenreList(): Genres {
-    return Genres(
+fun MovieGenresDto.toMovieGenreList(): MovieGenres {
+    return MovieGenres(
         id = id,
         name = name,
     )

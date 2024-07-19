@@ -6,10 +6,10 @@ data class Movie(
     val overview: String? = null,
     val poster_path: String? = null,
     val vote_avarage: Float? = null,
-    val genres: List<Genres>? = null,
+    val genres: List<MovieGenres>? = null,
 )
 
-data class Genres(
+data class MovieGenres(
     val id: Long? = null,
     val name: String? = null,
 )

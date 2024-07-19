@@ -6,10 +6,11 @@ data class MovieDto(
     val overview: String? = null,
     val poster_path: String? = null,
     val vote_avarage: Float? = null,
-    val genres: List<GenresDto>? = null,
+    val popularity: Float? = null,
+    val genres: List<MovieGenresDto>? = null,
 )
 
-data class GenresDto(
+data class MovieGenresDto(
     val id: Long? = null,
     val name: String? = null,
 )
