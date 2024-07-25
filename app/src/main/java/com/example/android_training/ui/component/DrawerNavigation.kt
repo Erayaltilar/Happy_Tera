@@ -35,6 +35,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.android_training.R
+import com.example.android_training.presentation.navigation.NavGraph
 import com.example.android_training.presentation.navigation.Screens
 import com.example.android_training.ui.theme.Dimen
 import kotlinx.coroutines.CoroutineScope
@@ -48,13 +49,13 @@ data class NavigationItem(
     val navigateToScreen: Screens,
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomDrawerNavigation(
-    mainContent: @Composable (innerPadding: PaddingValues) -> Unit = { /* sonar - comment */ },
+    modifier: Modifier = Modifier,
     navController: NavController = rememberNavController(),
     scope: CoroutineScope,
     drawerState: DrawerState,
+    navHost: @Composable () -> Unit = { /* sonar - comment */ },
 ) {
     var selectedItemIndex by rememberSaveable {
         mutableIntStateOf(0)
@@ -81,7 +82,7 @@ fun CustomDrawerNavigation(
         drawerContent = {
             ModalDrawerSheet(drawerContainerColor = Color.DarkGray) {
 
-                Spacer(modifier = Modifier.height(Dimen.spacing_m1))
+                Spacer(modifier = modifier)
 
                 items.forEachIndexed { index, item ->
 
@@ -117,35 +118,6 @@ fun CustomDrawerNavigation(
         },
         drawerState = drawerState,
     ) {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    colors = TopAppBarDefaults.topAppBarColors(Color.DarkGray),
-                    title = {
-                        Text(
-                            text = stringResource(R.string.app_name),
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White
-                        )
-                    },
-                    navigationIcon = {
-                        IconButton(
-                            onClick = {
-                                scope.launch {
-                                    drawerState.open()
-                                }
-                            },
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Menu,
-                                contentDescription = stringResource(R.string.menu),
-                            )
-                        }
-                    },
-                )
-            },
-        ) { innerPadding ->
-            mainContent(innerPadding)
-        }
+        navHost()
     }
 }
