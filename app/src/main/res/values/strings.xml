@@ -8,6 +8,7 @@
     <!-- Main Screen -->
     <string name="advice">Advice</string>
     <string name="movie">Movie</string>
+    <string name="scroll_to_top">Scroll to top</string>
 
     <!-- Movie Screen -->
     <string name="movies">Movies !</string>
