@@ -5,13 +5,21 @@
     <string name="get_advice">Get Advice</string>
     <string name="loading">Loading...</string>
 
-     <!-- Main Screen -->
+    <!-- Main Screen -->
     <string name="advice">Advice</string>
     <string name="movie">Movie</string>
 
     <!-- Movie Screen -->
     <string name="movies">Movies !</string>
     <string name="https_image_tmdb_org_t_p_w500">https://image.tmdb.org/t/p/w500/%1$s</string>
+
+    <!-- Similar Series Screen -->
+    <string name="see_similar_series">See Similar Series</string>
+
+    <!-- Similar Movies Screen -->
+    <string name="see_similar_movies">See Similar Movies</string>
+    <string name="description">Description</string>
+    <string name="genres">Genres</string>
 
     <!-- Content Descriptions -->
     <string name="menu">Menu</string>

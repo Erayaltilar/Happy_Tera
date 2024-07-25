@@ -3,7 +3,6 @@ package com.example.android_training.presentation.detail.series_detail
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -111,7 +110,7 @@ private fun SeriesDetailScreenUI(
         )
 
         Text(
-            text = series?.name ?: "aaa",
+            text = series?.name ?: "",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.Gray,
             fontWeight = FontWeight.Bold,
@@ -121,7 +120,7 @@ private fun SeriesDetailScreenUI(
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))
 
         Text(
-            text = "Description",
+            text = stringResource(R.string.description),
             color = Color.White,
             fontWeight = FontWeight.Bold,
             fontSize = Dimen.font_size_l,
@@ -130,7 +129,7 @@ private fun SeriesDetailScreenUI(
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))
 
         Text(
-            text = series?.overview ?: "bbb",
+            text = series?.overview ?: "",
             color = Color.White,
             fontWeight = FontWeight.Bold,
         )
@@ -138,7 +137,7 @@ private fun SeriesDetailScreenUI(
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))
 
         Text(
-            text = "Genres",
+            text = stringResource(R.string.genres),
             color = Color.White,
             fontWeight = FontWeight.Bold,
             fontSize = Dimen.font_size_l,
@@ -153,7 +152,7 @@ private fun SeriesDetailScreenUI(
                     shape = RoundedCornerShape(Dimen.spacing_l),
                 ) {
                     Text(
-                        text = series?.genres?.get(it)?.name ?: "ccc",
+                        text = series?.genres?.get(it)?.name ?: "Can not found series Detail",
                         modifier = Modifier.padding(horizontal = Dimen.spacing_m1, vertical = Dimen.spacing_xxs),
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
@@ -177,7 +176,12 @@ private fun SeriesDetailScreenUI(
                 )
             }
         ) {
-            Text(text = "See Similar Movies")
+            Text(
+                text = stringResource(R.string.see_similar_series),
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                fontSize = Dimen.font_size_l,
+            )
         }
     }
 }

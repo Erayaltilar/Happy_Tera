@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
@@ -31,11 +30,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.android_training.R
-import com.example.android_training.domain.model.movie_model.Movie
 import com.example.android_training.domain.model.series_model.Series
 import com.example.android_training.presentation.navigation.Screens
-import com.example.android_training.presentation.similar.movies.SimilarMoviesViewModel
-import com.example.android_training.presentation.similar.movies.SimilarSeriesViewModel
 import com.example.android_training.ui.theme.Dimen
 
 @Composable

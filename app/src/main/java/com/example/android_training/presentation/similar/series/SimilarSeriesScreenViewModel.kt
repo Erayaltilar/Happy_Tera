@@ -1,11 +1,9 @@
-package com.example.android_training.presentation.similar.movies
+package com.example.android_training.presentation.similar.series
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android_training.core.Resource
-import com.example.android_training.domain.model.movie_model.Movie
 import com.example.android_training.domain.model.series_model.Series
-import com.example.android_training.domain.usecase.GetSimilarMoviesUseCase
 import com.example.android_training.domain.usecase.GetSimilarSeriesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

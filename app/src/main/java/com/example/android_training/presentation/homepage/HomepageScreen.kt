@@ -85,7 +85,7 @@ fun MovieHomepageUI(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.White,
             fontWeight = FontWeight.Bold,
-            fontSize = Dimen.font_size_22
+            fontSize = Dimen.font_size_22,
         )
 
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))
@@ -102,7 +102,7 @@ fun MovieHomepageUI(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             fontWeight = FontWeight.Bold,
             color = Color.White,
-            fontSize = Dimen.font_size_22
+            fontSize = Dimen.font_size_22,
         )
 
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))

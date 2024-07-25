@@ -103,7 +103,7 @@ private fun DetailScreenUI(
         )
 
         Text(
-            text = movie?.title ?: "aaa",
+            text = movie?.title ?: "",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.Gray,
             fontWeight = FontWeight.Bold,
@@ -113,7 +113,7 @@ private fun DetailScreenUI(
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))
 
         Text(
-            text = "Description",
+            text = stringResource(R.string.description),
             color = Color.White,
             fontWeight = FontWeight.Bold,
             fontSize = Dimen.font_size_l,
@@ -122,7 +122,7 @@ private fun DetailScreenUI(
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))
 
         Text(
-            text = movie?.overview ?: "bbb",
+            text = movie?.overview ?: "",
             color = Color.White,
             fontWeight = FontWeight.Bold,
         )
@@ -130,7 +130,7 @@ private fun DetailScreenUI(
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))
 
         Text(
-            text = "Genres",
+            text = stringResource(R.string.genres),
             color = Color.White,
             fontWeight = FontWeight.Bold,
             fontSize = Dimen.font_size_l,
@@ -145,7 +145,7 @@ private fun DetailScreenUI(
                     shape = RoundedCornerShape(Dimen.spacing_l),
                 ) {
                     Text(
-                        text = movie?.genres?.get(it)?.name ?: "ccc",
+                        text = movie?.genres?.get(it)?.name ?: "Can not found movie Detail",
                         modifier = Modifier.padding(horizontal = Dimen.spacing_m1, vertical = Dimen.spacing_xxs),
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
@@ -169,7 +169,12 @@ private fun DetailScreenUI(
                 )
             }
         ) {
-            Text(text = "See Similar Movies")
+            Text(
+                text = stringResource(R.string.see_similar_movies),
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                fontSize = Dimen.font_size_l,
+            )
         }
     }
 }

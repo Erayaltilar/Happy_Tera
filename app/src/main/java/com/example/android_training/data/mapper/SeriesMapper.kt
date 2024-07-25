@@ -1,10 +1,8 @@
 package com.example.android_training.data.mapper
 
-import com.example.android_training.data.remote.dto.movie.MovieRequestDto
 import com.example.android_training.data.remote.dto.series.SeriesDto
 import com.example.android_training.data.remote.dto.series.SeriesGenresDto
 import com.example.android_training.data.remote.dto.series.SeriesRequestDto
-import com.example.android_training.domain.model.movie_model.MovieRequest
 import com.example.android_training.domain.model.series_model.Series
 import com.example.android_training.domain.model.series_model.SeriesGenres
 import com.example.android_training.domain.model.series_model.SeriesRequest

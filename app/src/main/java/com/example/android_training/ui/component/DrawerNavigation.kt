@@ -1,18 +1,13 @@
-package com.example.android_training.presentation.component
+package com.example.android_training.ui.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.outlined.Favorite
-import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.PlayArrow
 import androidx.compose.material3.DrawerState
@@ -38,10 +33,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
-import androidx.navigation.NavGraph
 import androidx.navigation.compose.rememberNavController
 import com.example.android_training.R
-import com.example.android_training.presentation.navigation.NavGraph
 import com.example.android_training.presentation.navigation.Screens
 import com.example.android_training.ui.theme.Dimen
 import kotlinx.coroutines.CoroutineScope
