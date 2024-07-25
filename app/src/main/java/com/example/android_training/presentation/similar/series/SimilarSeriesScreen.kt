@@ -82,12 +82,11 @@ fun SimilarMoviesScreenUI(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = Dimen.spacing_xxxl)
             .background(Color.Black),
     ) {
 
         Text(
-            text = "Similar Movies",
+            text = stringResource(R.string.similar_series),
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.LightGray,
             fontWeight = FontWeight.Bold,

@@ -76,8 +76,7 @@ fun MovieHomepageUI(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.Black)
-            .padding(top = Dimen.spacing_xxxl),
+            .background(color = Color.Black),
     ) {
 
         Text(

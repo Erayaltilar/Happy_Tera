@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -83,11 +85,13 @@ private fun DetailScreenUI(
     movie: Movie? = null,
     navController: NavController,
 ) {
+    val scrollState = rememberScrollState()
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
-            .padding(top = Dimen.spacing_xxxl),
+            .verticalScroll(scrollState),
     ) {
         val imageUrl = stringResource(R.string.https_image_tmdb_org_t_p_w500, movie?.poster_path ?: "")
 

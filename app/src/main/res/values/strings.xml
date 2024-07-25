@@ -15,11 +15,13 @@
 
     <!-- Similar Series Screen -->
     <string name="see_similar_series">See Similar Series</string>
+    <string name="similar_series">Similar Series</string>
 
     <!-- Similar Movies Screen -->
     <string name="see_similar_movies">See Similar Movies</string>
     <string name="description">Description</string>
     <string name="genres">Genres</string>
+    <string name="similar_movies">Similar Movies</string>
 
     <!-- Content Descriptions -->
     <string name="menu">Menu</string>

@@ -37,7 +37,9 @@ fun MovieDetail(
                     ),
                 )
             }
-        )) {
+        ),
+
+    ) {
         Column {
 
             val imageUrl = stringResource(R.string.https_image_tmdb_org_t_p_w500, movie.poster_path ?: "")

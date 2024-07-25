@@ -93,7 +93,6 @@ private fun SeriesDetailScreenUI(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
-            .padding(top = Dimen.spacing_xxxl)
             .verticalScroll(scrollState),
     ) {
         val imageUrl = stringResource(R.string.https_image_tmdb_org_t_p_w500, series?.poster_path ?: "")
