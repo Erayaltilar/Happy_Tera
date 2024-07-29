@@ -61,7 +61,7 @@ fun MovieAlbum(
                 onClick = {
                     coroutineScope.launch {
                         state.scrollToItem(
-                            index = 0
+                            index = 0,
                         )
                     }
                 }

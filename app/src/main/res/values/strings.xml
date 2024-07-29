@@ -9,9 +9,10 @@
     <string name="advice">Advice</string>
     <string name="movie">Movie</string>
     <string name="scroll_to_top">Scroll to top</string>
+    <string name="tv_series">TV Series</string>
+    <string name="movies">Movies !</string>
 
     <!-- Movie Screen -->
-    <string name="movies">Movies !</string>
     <string name="https_image_tmdb_org_t_p_w500">https://image.tmdb.org/t/p/w500/%1$s</string>
 
     <!-- Similar Series Screen -->
