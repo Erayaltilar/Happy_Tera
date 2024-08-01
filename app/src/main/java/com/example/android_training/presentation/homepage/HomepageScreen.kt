@@ -7,15 +7,25 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -62,6 +72,15 @@ fun HomepageScreen(
             movies = discoverMovies,
             series = discoverSeries,
             navController = navController,
+            search = {
+                if (it.isEmpty()) {
+                    viewModel.getDiscoverMovies()
+                    viewModel.getDiscoverSeries()
+                } else {
+                    viewModel.getSearchSeries(it)
+                    viewModel.getSearchMovie(it)
+                }
+            },
         )
     }
 }
@@ -71,12 +90,33 @@ fun MovieHomepageUI(
     navController: NavController,
     movies: List<Movie>?,
     series: List<Series>?,
+    search: (String) -> Unit,
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.Black),
+            .background(color = Color.Black)
+            .verticalScroll(rememberScrollState()),
     ) {
+        var query by remember { mutableStateOf("") }
+
+
+        OutlinedTextField(
+            value = query,
+            onValueChange = {
+                query = it
+                search(it)
+            },
+            label = { Text(text = "Search") },
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            singleLine = true,
+            maxLines = 1,
+            shape = RoundedCornerShape(Dimen.spacing_m1),
+            enabled = true,
+            textStyle = TextStyle( color = Color.White )
+        )
+
+        Spacer(modifier = Modifier.height(Dimen.spacing_m1))
 
         Text(
             text = stringResource(R.string.movies),

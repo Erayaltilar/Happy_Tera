@@ -77,4 +77,24 @@ class MovieRepositoryImpl @Inject constructor(
             emit(Resource.Error(e.message.orEmpty()))
         }
     }
+
+    override fun getSearchMovie(query: String): Flow<Resource<MovieRequest>> = flow {
+        try {
+            emit(Resource.Loading())
+            val data = movieApi.getSearchMovies(query).toMovieRequest()
+            emit(Resource.Success(data))
+        } catch (e: Exception) {
+            emit(Resource.Error(e.message.orEmpty()))
+        }
+    }
+
+    override fun getSearchSeries(query: String): Flow<Resource<SeriesRequest>> = flow {
+        try {
+            emit(Resource.Loading())
+            val data = movieApi.getSearchSeries(query).toSeriesRequest()
+            emit(Resource.Success(data))
+        } catch (e: Exception) {
+            emit(Resource.Error(e.message.orEmpty()))
+        }
+    }
 }

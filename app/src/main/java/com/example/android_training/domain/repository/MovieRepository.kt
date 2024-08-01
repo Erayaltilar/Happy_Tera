@@ -14,5 +14,6 @@ interface MovieRepository {
     fun getDiscoverSeries(): Flow<Resource<SeriesRequest>>
     fun getSeriesDetail(seriesId: Long): Flow<Resource<Series>>
     fun getSimilarSeries(seriesId: Long): Flow<Resource<SeriesRequest>>
-
+    fun getSearchMovie(query: String): Flow<Resource<MovieRequest>>
+    fun getSearchSeries(query: String): Flow<Resource<SeriesRequest>>
 }

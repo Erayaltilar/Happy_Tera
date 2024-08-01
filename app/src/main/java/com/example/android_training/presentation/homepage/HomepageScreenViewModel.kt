@@ -7,6 +7,8 @@ import com.example.android_training.domain.model.movie_model.Movie
 import com.example.android_training.domain.model.series_model.Series
 import com.example.android_training.domain.usecase.GetDiscoverMoviesUseCase
 import com.example.android_training.domain.usecase.GetDiscoverSeriesUseCase
+import com.example.android_training.domain.usecase.GetSearchMovieUseCase
+import com.example.android_training.domain.usecase.GetSearchSeriesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -20,6 +22,8 @@ import javax.inject.Inject
 class HomepageScreenViewModel @Inject constructor(
     private val getDiscoverMoviesUseCase: GetDiscoverMoviesUseCase,
     private val getDiscoverSeriesUseCase: GetDiscoverSeriesUseCase,
+    private val getSearchSeriesUseCase: GetSearchSeriesUseCase,
+    private val getSearchMovieUseCase: GetSearchMovieUseCase,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomepageScreenUIState())
@@ -31,7 +35,83 @@ class HomepageScreenViewModel @Inject constructor(
         getDiscoverSeries()
     }
 
-    private fun getDiscoverSeries() {
+    fun getSearchMovie(query: String) {
+        getSearchMovieUseCase(query).onEach {
+            when (it) {
+                is Resource.Loading -> {
+                    _uiState.update { state ->
+                        state.copy(
+                            loadingState = true,
+                            isHaveError = false,
+                            isSuccess = false,
+                        )
+                    }
+                }
+
+                is Resource.Success -> {
+                    _uiState.update { state ->
+                        state.copy(
+                            loadingState = false,
+                            isHaveError = false,
+                            isSuccess = true,
+                            discoverMovies = it.data?.results,
+                        )
+                    }
+                }
+
+                is Resource.Error -> {
+                    _uiState.update { state ->
+                        state.copy(
+                            loadingState = false,
+                            isHaveError = true,
+                            isSuccess = false,
+                            errorMessage = it.errorMessage.toString(),
+                        )
+                    }
+                }
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getSearchSeries(query: String) {
+        getSearchSeriesUseCase(query).onEach {
+            when (it) {
+                is Resource.Loading -> {
+                    _uiState.update { state ->
+                        state.copy(
+                            loadingState = true,
+                            isHaveError = false,
+                            isSuccess = false,
+                        )
+                    }
+                }
+
+                is Resource.Success -> {
+                    _uiState.update { state ->
+                        state.copy(
+                            loadingState = false,
+                            isHaveError = false,
+                            isSuccess = true,
+                            discoverSeries = it.data?.results,
+                        )
+                    }
+                }
+
+                is Resource.Error -> {
+                    _uiState.update { state ->
+                        state.copy(
+                            loadingState = false,
+                            isHaveError = true,
+                            isSuccess = false,
+                            errorMessage = it.errorMessage.toString(),
+                        )
+                    }
+                }
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getDiscoverSeries() {
         getDiscoverSeriesUseCase().onEach {
             when (it) {
                 is Resource.Loading -> {
@@ -70,7 +150,7 @@ class HomepageScreenViewModel @Inject constructor(
     }
 
 
-    private fun getDiscoverMovies() {
+    fun getDiscoverMovies() {
         getDiscoverMoviesUseCase().onEach {
             when (it) {
                 is Resource.Loading -> {
