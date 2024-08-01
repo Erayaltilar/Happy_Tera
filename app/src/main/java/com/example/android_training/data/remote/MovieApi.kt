@@ -6,6 +6,7 @@ import com.example.android_training.data.remote.dto.series.SeriesDto
 import com.example.android_training.data.remote.dto.series.SeriesRequestDto
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MovieApi {
     @GET("3/discover/movie")
@@ -26,4 +27,8 @@ interface MovieApi {
     @GET("3/tv/{series_id}/similar")
     suspend fun getSimilarSeries(@Path("series_id") seriesId: Long): SeriesRequestDto
 
+    @GET("3/search/movie")
+    suspend fun getSearchMovies(@Query("q") query: String) : MovieRequestDto
+    @GET("3/search/tv")
+    suspend fun getSearchSeries(@Query("q") query: String) : SeriesRequestDto
 }
