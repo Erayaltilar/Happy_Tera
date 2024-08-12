@@ -28,4 +28,5 @@
     <!-- Content Descriptions -->
     <string name="menu">Menu</string>
     <string name="movie_poster">Movie Poster</string>
+    <string name="chronometer">Chronometer</string>
 </resources>
