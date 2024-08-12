@@ -29,4 +29,7 @@ sealed class Screens {
         val seriesId: Long,
     ) : Screens()
 
+    @Serializable
+    data object ChronometerScreen : Screens()
+
 }

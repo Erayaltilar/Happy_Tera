@@ -65,7 +65,7 @@ fun CustomDrawerNavigation(
             title = stringResource(R.string.chronometer),
             selectedIcon = painterResource(id = R.drawable.ic_chronometer),
             unselectedIcon = painterResource(id = R.drawable.ic_chronometer),
-            navigateToScreen = Screens.HomepageScreen,
+            navigateToScreen = Screens.ChronometerScreen,
         ),
     )
 

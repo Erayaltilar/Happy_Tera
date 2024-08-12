@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.android_training.presentation.advice.homepage.AdviceHomepageScreen
+import com.example.android_training.presentation.chronometer.screen.ChronometerScreen
 import com.example.android_training.presentation.detail.movie_detail.MovieDetailScreen
 import com.example.android_training.presentation.detail.series_detail.SeriesDetailScreen
 import com.example.android_training.presentation.homepage.HomepageScreen
@@ -58,5 +59,10 @@ fun NavGraph(navController: NavHostController, modifier: Modifier = Modifier) {
                 navController = navController,
             )
         }
+
+        composable<Screens.ChronometerScreen> {
+            ChronometerScreen()
+        }
+
     }
 }
