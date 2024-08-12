@@ -1,4 +1,4 @@
-package com.example.android_training.ui.component
+package com.example.android_training.presentation.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.example.android_training.R
-import com.example.android_training.ui.theme.Dimen
+import com.example.android_training.presentation.ui.theme.Dimen
 
 
 @Composable

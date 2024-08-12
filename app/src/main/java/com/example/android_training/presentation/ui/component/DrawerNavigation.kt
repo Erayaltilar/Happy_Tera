@@ -1,4 +1,4 @@
-package com.example.android_training.ui.component
+package com.example.android_training.presentation.ui.component
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -37,7 +37,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.android_training.R
 import com.example.android_training.presentation.navigation.NavGraph
 import com.example.android_training.presentation.navigation.Screens
-import com.example.android_training.ui.theme.Dimen
+import com.example.android_training.presentation.ui.theme.Dimen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

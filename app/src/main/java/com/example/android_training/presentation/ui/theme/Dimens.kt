@@ -1,4 +1,4 @@
-package com.example.android_training.ui.theme
+package com.example.android_training.presentation.ui.theme
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp

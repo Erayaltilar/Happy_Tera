@@ -34,7 +34,7 @@ import com.example.android_training.domain.model.movie_model.Movie
 import com.example.android_training.domain.model.series_model.Series
 import com.example.android_training.presentation.homepage.movie.MovieAlbum
 import com.example.android_training.presentation.homepage.series.SeriesAlbum
-import com.example.android_training.ui.theme.Dimen
+import com.example.android_training.presentation.ui.theme.Dimen
 
 
 @Composable

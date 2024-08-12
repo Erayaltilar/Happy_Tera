@@ -25,7 +25,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.android_training.R
 import com.example.android_training.domain.model.message_model.Message
-import com.example.android_training.ui.theme.Dimen
+import com.example.android_training.presentation.ui.theme.Dimen
 
 @Composable
 fun AdviceHomepageScreen(

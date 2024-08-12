@@ -25,8 +25,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.compose.rememberNavController
 import com.example.android_training.presentation.navigation.NavGraph
-import com.example.android_training.ui.component.CustomDrawerNavigation
-import com.example.android_training.ui.theme.AndroidTrainingTheme
+import com.example.android_training.presentation.ui.component.CustomDrawerNavigation
+import com.example.android_training.presentation.ui.theme.AndroidTrainingTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

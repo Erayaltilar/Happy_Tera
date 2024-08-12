@@ -16,8 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.example.android_training.domain.model.series_model.Series
-import com.example.android_training.ui.component.ScrollToTopButton
-import com.example.android_training.ui.theme.Dimen
+import com.example.android_training.presentation.ui.component.ScrollToTopButton
+import com.example.android_training.presentation.ui.theme.Dimen
 import kotlinx.coroutines.launch
 
 @Composable
