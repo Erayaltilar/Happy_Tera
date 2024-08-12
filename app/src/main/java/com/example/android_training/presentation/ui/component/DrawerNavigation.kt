@@ -1,27 +1,15 @@
 package com.example.android_training.presentation.ui.component
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.outlined.Info
-import androidx.compose.material.icons.outlined.PlayArrow
 import androidx.compose.material3.DrawerState
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.NavigationDrawerItemDefaults
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -29,13 +17,12 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.android_training.R
-import com.example.android_training.presentation.navigation.NavGraph
 import com.example.android_training.presentation.navigation.Screens
 import com.example.android_training.presentation.ui.theme.Dimen
 import kotlinx.coroutines.CoroutineScope
@@ -43,8 +30,8 @@ import kotlinx.coroutines.launch
 
 data class NavigationItem(
     val title: String,
-    val selectedIcon: ImageVector,
-    val unselectedIcon: ImageVector,
+    val selectedIcon: Painter,
+    val unselectedIcon: Painter,
     val badgeCount: Int? = null,
     val navigateToScreen: Screens,
 )
@@ -64,14 +51,20 @@ fun CustomDrawerNavigation(
     val items = listOf(
         NavigationItem(
             title = stringResource(R.string.advice),
-            selectedIcon = Icons.Filled.Info,
-            unselectedIcon = Icons.Outlined.Info,
+            selectedIcon = painterResource(id = R.drawable.ic_advice),
+            unselectedIcon = painterResource(id = R.drawable.ic_black_advice),
             navigateToScreen = Screens.AdviceHomepageScreen,
         ),
         NavigationItem(
             title = stringResource(R.string.movie),
-            selectedIcon = Icons.Filled.PlayArrow,
-            unselectedIcon = Icons.Outlined.PlayArrow,
+            selectedIcon = painterResource(id = R.drawable.ic_black_clapperboard),
+            unselectedIcon = painterResource(id = R.drawable.ic_clapperboard),
+            navigateToScreen = Screens.HomepageScreen,
+        ),
+        NavigationItem(
+            title = stringResource(R.string.chronometer),
+            selectedIcon = painterResource(id = R.drawable.ic_chronometer),
+            unselectedIcon = painterResource(id = R.drawable.ic_chronometer),
             navigateToScreen = Screens.HomepageScreen,
         ),
     )
@@ -100,10 +93,12 @@ fun CustomDrawerNavigation(
                         },
                         icon = {
                             Icon(
-                                imageVector = if (index == selectedItemIndex) {
+                                painter = if (index == selectedItemIndex) {
                                     item.selectedIcon
                                 } else item.unselectedIcon,
-                                contentDescription = item.title
+                                modifier = Modifier.height(Dimen.spacing_xl),
+                                contentDescription = item.title,
+
                             )
                         },
                         badge = {
