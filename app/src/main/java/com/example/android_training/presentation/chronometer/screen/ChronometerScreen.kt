@@ -19,8 +19,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.android_training.R
 import com.example.android_training.presentation.ui.theme.Dimen
 
 @SuppressLint("DefaultLocale")
@@ -38,13 +40,7 @@ fun ChronometerScreen(
             .background(Color.Black),
         ) {
         Text(
-            text = String.format(
-                "%02d:%02d:%02d.%02d",
-                uiState.timeInMilliseconds / 3600000,
-                (uiState.timeInMilliseconds % 3600000) / 60000,
-                (uiState.timeInMilliseconds % 60000) / 1000,
-                (uiState.timeInMilliseconds % 1000) / 10
-            ),
+            text = String.format(uiState.formattedTime),
             style = MaterialTheme.typography.headlineMedium,
             color = MaterialTheme.colorScheme.background,
         )
@@ -58,7 +54,7 @@ fun ChronometerScreen(
             modifier = Modifier.width(Dimen.spacing_xxxxxl),
         ) {
             Text(
-                text = "Start",
+                text = stringResource(R.string.start),
                 color = Color.White,
                 fontSize = Dimen.font_size_l,
                 fontWeight = FontWeight.Bold,
@@ -74,7 +70,7 @@ fun ChronometerScreen(
             modifier = Modifier.width(Dimen.spacing_xxxxxl),
         ) {
             Text(
-                text = "Pause",
+                text = stringResource(R.string.pause),
                 color = Color.White,
                 fontSize = Dimen.font_size_l,
                 fontWeight = FontWeight.Bold,
@@ -90,7 +86,7 @@ fun ChronometerScreen(
             modifier = Modifier.width(Dimen.spacing_xxxxxl),
         ) {
             Text(
-                text = "Reset",
+                text = stringResource(R.string.reset),
                 color = Color.White,
                 fontSize = Dimen.font_size_l,
                 fontWeight = FontWeight.Bold,

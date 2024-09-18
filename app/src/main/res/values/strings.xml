@@ -25,6 +25,11 @@
     <string name="genres">Genres</string>
     <string name="similar_movies">Similar Movies</string>
 
+    <!-- Chronometer Screen -->
+    <string name="pause">Pause</string>
+    <string name="reset">Reset</string>
+    <string name="start">Start</string>
+
     <!-- Content Descriptions -->
     <string name="menu">Menu</string>
     <string name="movie_poster">Movie Poster</string>
