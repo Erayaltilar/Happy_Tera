@@ -56,6 +56,7 @@ class ChronometerViewModel @Inject constructor(
     fun resetChronometer() {
         _uiState.value = _uiState.value.copy(
             isRunning = false,
+            timeInMilliseconds = 0L,
             formattedTime = "00:00:00:00",
         )
     }
