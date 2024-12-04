@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.compose.rememberNavController
+import com.example.android_training.core.SharedPreferencesManager
 import com.example.android_training.presentation.navigation.NavGraph
 import com.example.android_training.presentation.ui.component.CustomDrawerNavigation
 import com.example.android_training.presentation.ui.theme.AndroidTrainingTheme
@@ -36,6 +37,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SharedPreferencesManager.init(this)
         setContent {
             AndroidTrainingTheme {
                 Surface(

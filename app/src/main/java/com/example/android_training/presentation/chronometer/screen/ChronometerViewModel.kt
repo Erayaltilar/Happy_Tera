@@ -2,6 +2,9 @@ package com.example.android_training.presentation.chronometer.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.android_training.core.SharedPreferencesManager.clearTime
+import com.example.android_training.core.SharedPreferencesManager.getTime
+import com.example.android_training.core.SharedPreferencesManager.saveTime
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,6 +19,14 @@ class ChronometerViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow(ChronometerUIState())
     val uiState: StateFlow<ChronometerUIState> = _uiState.asStateFlow()
+
+
+    init {
+        _uiState.value = _uiState.value.copy(
+            timeInMilliseconds = getTime(),
+            formattedTime = formatTime(getTime())
+        )
+    }
 
     fun startChronometer() {
         if (_uiState.value.isRunning) return
@@ -32,6 +43,7 @@ class ChronometerViewModel @Inject constructor(
                     timeInMilliseconds = elapsedTime,
                     formattedTime = formatTime(elapsedTime)
                 )
+                saveTime(elapsedTime)
                 delay(10L)
             }
         }
@@ -60,12 +72,13 @@ class ChronometerViewModel @Inject constructor(
             timeInMilliseconds = 0L,
             formattedTime = "00:00:00:00",
         )
+        clearTime()
     }
 }
 
 data class ChronometerUIState(
     val isRunning: Boolean = false,
-    val timeInMilliseconds : Long = 0L,
+    val timeInMilliseconds : Long = getTime(),
     val formattedTime: String = "00:00:00:00",
     val loadingState: Boolean = false,
     val isHaveError: Boolean = false,
