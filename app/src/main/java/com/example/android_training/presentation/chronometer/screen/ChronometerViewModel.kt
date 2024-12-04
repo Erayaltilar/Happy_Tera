@@ -28,6 +28,7 @@ class ChronometerViewModel @Inject constructor(
                 val elapsedTime = currentTime - startTime
 
                 _uiState.value = _uiState.value.copy(
+                    isRunning = true,
                     timeInMilliseconds = elapsedTime,
                     formattedTime = formatTime(elapsedTime)
                 )
