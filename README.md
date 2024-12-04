@@ -1,7 +1,7 @@
 # Welcome! 👋  
 
 This project includes features such as API integration, a navigation drawer, and a stopwatch — basically, whatever came to mind at the time! 😄  
-The goal is to give anyone checking out the code an idea of what this project is all about. 🚀  
+The goal is to give anyone checking out the code a general idea of the features included in this project. 🚀 
 
 ## <p align="center">:point_down: Structures Used </p>
 - MVVM + Clean Architecture
