@@ -6,12 +6,14 @@ plugins {
     id("kotlinx-serialization")
 }
 
+val bundleId = "com.example.happy_tera"
+
 android {
-    namespace = "com.example.android_training"
+    namespace = bundleId
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.android_training"
+        applicationId = bundleId
         minSdk = 24
         targetSdk = 34
         versionCode = 1

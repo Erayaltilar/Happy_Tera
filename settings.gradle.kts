@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Android-Training"
+rootProject.name = "Happy Tera"
 include(":app")
  
