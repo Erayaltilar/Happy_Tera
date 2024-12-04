@@ -63,7 +63,11 @@ class MainActivity : ComponentActivity() {
                                     IconButton(
                                         onClick = {
                                             scope.launch {
-                                                drawerState.open()
+                                                if(drawerState.isOpen){
+                                                    drawerState.close()
+                                                }else{
+                                                    drawerState.open()
+                                                }
                                             }
                                         },
                                     ) {
