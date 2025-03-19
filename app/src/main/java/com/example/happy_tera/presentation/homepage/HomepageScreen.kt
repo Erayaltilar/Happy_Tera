@@ -70,15 +70,15 @@ fun HomepageScreen(
             movies = discoverMovies,
             series = discoverSeries,
             navController = navController,
-            search = {
-                if (it.isEmpty()) {
-                    viewModel.getDiscoverMovies()
-                    viewModel.getDiscoverSeries()
-                } else {
-                    viewModel.getSearchSeries(it)
-                    viewModel.getSearchMovie(it)
-                }
-            },
+//            search = {
+//                if (it.isEmpty()) {
+//                    viewModel.getDiscoverMovies()
+//                    viewModel.getDiscoverSeries()
+//                } else {
+//                    viewModel.getSearchSeries(it)
+//                    viewModel.getSearchMovie(it)
+//                }
+//            },
         )
     }
 }
@@ -88,7 +88,7 @@ fun MovieHomepageUI(
     navController: NavController,
     movies: List<Movie>?,
     series: List<Series>?,
-    search: (String) -> Unit,
+//    search: (String) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -96,23 +96,23 @@ fun MovieHomepageUI(
             .background(color = Color.Black)
             .verticalScroll(rememberScrollState()),
     ) {
-        var query by remember { mutableStateOf("") }
+//        var query by remember { mutableStateOf("") }
 
-
-        OutlinedTextField(
-            value = query,
-            onValueChange = {
-                query = it
-                search(it)
-            },
-            label = { Text(text = "Search") },
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            singleLine = true,
-            maxLines = 1,
-            shape = RoundedCornerShape(Dimen.spacing_m1),
-            enabled = true,
-            textStyle = TextStyle( color = Color.White )
-        )
+//
+//        OutlinedTextField(
+//            value = query,
+//            onValueChange = {
+//                query = it
+//                search(it)
+//            },
+//            label = { Text(text = "Search") },
+//            modifier = Modifier.align(Alignment.CenterHorizontally),
+//            singleLine = true,
+//            maxLines = 1,
+//            shape = RoundedCornerShape(Dimen.spacing_m1),
+//            enabled = true,
+//            textStyle = TextStyle( color = Color.White )
+//        )
 
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))
 
