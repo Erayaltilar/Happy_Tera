@@ -42,7 +42,7 @@ fun ChronometerScreen(
         Text(
             text = String.format(uiState.formattedTime),
             style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.background,
+            color = MaterialTheme.colorScheme.primary,
         )
 
         Spacer(modifier = Modifier.height(Dimen.spacing_m1))
