@@ -1,4 +1,4 @@
-package com.example.happy_tera
+package com.happy_tera
 
 import org.junit.Test
 

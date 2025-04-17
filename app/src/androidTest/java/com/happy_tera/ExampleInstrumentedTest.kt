@@ -1,4 +1,4 @@
-package com.example.happy_tera
+package com.happy_tera
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
